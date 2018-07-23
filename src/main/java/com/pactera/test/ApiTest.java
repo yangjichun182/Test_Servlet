@@ -1,11 +1,16 @@
 package com.pactera.test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,13 +18,53 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.hamcrest.core.Is;
 import org.junit.Test;
+import org.springframework.core.io.ClassPathResource;
 
 import com.pactera.domain.User;
 
-public class ApiTest extends B{
-	
+public class ApiTest extends B {
+
 	public ApiTest() {
+	}
+
+	@Test
+	public void test2() throws IOException {
+		String path="com/pactera/beans/test.txt";
+		ClassPathResource cp = new ClassPathResource(path);
+		URI uri = cp.getURI();
+		System.out.println(uri);
+		
+	}
+
+	@Test
+	public void teststring() throws IOException {
+
+		String filename = "E:\\wifi密码.txt";
+		String file1 = "D:\\a.txt";
+		File file = new File(filename);
+		InputStream is = null;
+		OutputStream os = null;
+
+		try {
+			is = new FileInputStream(file);
+			byte b[] = new byte[1024];
+			is.read(b);
+			os = new FileOutputStream(file1);
+			os.write(b);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 	}
 
 	@Test
@@ -30,26 +75,27 @@ public class ApiTest extends B{
 		System.out.println(list.get(1));
 		scanList(list);
 	}
-	
-	public static  void scanList(List<String> list){
-		for(int i=0;i<list.size();i++){
+
+	public static void scanList(List<String> list) {
+		for (int i = 0; i < list.size(); i++) {
 			String str = list.get(i);
 			System.out.println(str);
 		}
 	}
-	
+
 	/**
 	 * Map数组的遍历方式2
+	 * 
 	 * @param map
 	 */
 	public static void scanMap1(Map<String, String> map) {
 		Set<Entry<String, String>> entrySet = map.entrySet();
 		Iterator<Entry<String, String>> it = entrySet.iterator();
-		while(it.hasNext()){
+		while (it.hasNext()) {
 			Entry<String, String> entry = it.next();
 			String key = entry.getKey();
 			String value = entry.getValue();
-			System.out.println(key+"==="+value);
+			System.out.println(key + "===" + value);
 		}
 	}
 
@@ -144,8 +190,7 @@ public class ApiTest extends B{
 	 *            输入的年份
 	 */
 	public static void leap(int year) {
-		if (((year % 100 != 0) && (year % 4 == 0))
-				|| ((year % 100 == 0) && (year % 400 == 0))) {
+		if (((year % 100 != 0) && (year % 4 == 0)) || ((year % 100 == 0) && (year % 400 == 0))) {
 			System.out.println(year + ":是闰年");
 		} else {
 			System.out.println(year + ":不是闰年");
@@ -238,8 +283,7 @@ public class ApiTest extends B{
 		System.err.println("password: " + user.getPasswd());
 
 		try {
-			ObjectOutputStream os = new ObjectOutputStream(
-					new FileOutputStream("D:\\user.txt"));
+			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("D:\\user.txt"));
 			os.writeObject(user); // 将User对象写进文件
 			os.flush();
 			os.close();
@@ -249,8 +293,7 @@ public class ApiTest extends B{
 			e.printStackTrace();
 		}
 		try {
-			ObjectInputStream is = new ObjectInputStream(new FileInputStream(
-					"D:\\user.txt"));
+			ObjectInputStream is = new ObjectInputStream(new FileInputStream("D:\\user.txt"));
 			user = (User) is.readObject(); // 从流中读取User的数据
 			is.close();
 

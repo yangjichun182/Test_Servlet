@@ -1,15 +1,14 @@
 package com.pactera.servlet;
 
 import java.io.IOException;
-import java.util.Date;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CookieDemo1 extends HttpServlet {
+public class JsonServlet extends HttpServlet {
 
 	/**
 	 * The doGet method of the servlet. <br>
@@ -27,32 +26,18 @@ public class CookieDemo1 extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		// 如果服务器端向客户端响应数据格式为JSON时,不需要设置响应首部信息
 		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 
-		Cookie[] cs = request.getCookies();
-		Cookie findC = null;
-		if (cs != null) {
-			for (Cookie c : cs) {
-				if ("lastTime".equals(c.getName())) {
-					findC = c;
-				}
-			}
-		}
-		if (findC == null) {
-			response.getWriter().write("���ǵ�һ�η��ʱ���վ!");
-		} else {
-			Long lastTime = Long.parseLong(findC.getValue());
-			response.getWriter().write(
-					"���ϴη���ʱ����:" + new Date(lastTime).toLocaleString());
-		}
+		/*
+		 * * 查询数据库: * 结果集为JavaBean * 结果集为集合 * 模拟查询数据库：手工方式构建
+		 */
 
-		Date date = new Date();
-		Cookie c = new Cookie("lastTime", date.getTime() + "");
-		c.setMaxAge(3600 * 24 * 30);
-		c.setPath(request.getContextPath());
-		// c.setDomain(".baidu.com");
-		response.addCookie(c);
+		// 手工方式构建:String类型的符合JSON数据格式的数据内容
+		String json = "[{'province':'吉林省'},{'province':'辽宁省'},{'province':'山东省'}]";
+
+		out.println(json);
 	}
 
 	/**
@@ -72,8 +57,8 @@ public class CookieDemo1 extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		doGet(request, response);
+
 	}
 
 }

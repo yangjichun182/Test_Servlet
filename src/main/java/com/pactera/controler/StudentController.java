@@ -24,8 +24,8 @@ public class StudentController {
 	private StudentService studentService;
 	
 	@RequestMapping("/student")
-	public String getStudentInfo(String id, HttpServletRequest request){
-		Map<String,Object> map = new HashMap<String,Object>();
+	public Map<String,String> getStudentInfo(String id, HttpServletRequest request){
+		Map<String,String> map = new HashMap<String,String>();
 		Student student = studentService.getStudent(id);
 //		ApplicationContext context = new ClassPathXmlApplicationContext(
 //				"classpath:springMvc/spring-mvc.xml");
@@ -42,19 +42,19 @@ public class StudentController {
 		map.put("name", name);
 		map.put("sex", sex);
 		map.put("id2", id2);
-		return "/test/student";
+		return map;
 	}
 
 	@Test
 	public void test1() {
-		// 获取上下文对象
+		// 鑾峰彇涓婁笅鏂囧璞�
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"classpath:spring/applicationContex.xml");
 		StudentController studentAction = (StudentController) context
 				.getBean("studentController");
 		System.out.println(studentAction);
 
-		 Student student = new Student("004","小明","男",20);
+		 Student student = new Student("004","灏忔槑","鐢�",20);
 		 studentAction.studentService.save(student);
 //		Student std = studentAction.studentService.getStudent("001");
 //		System.out.println(std);

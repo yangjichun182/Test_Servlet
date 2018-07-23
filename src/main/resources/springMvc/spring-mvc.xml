@@ -33,7 +33,7 @@
 	<!-- 配置视图jsp解析器 内部资源视图解析器 前缀+逻辑名+后缀 /WEB-INF/pages/ index .jsp -->
 	<bean id="internalResourceViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/html/" />
+		<property name="prefix" value="/" />
 		<property name="suffix" value=".html" />
 	</bean>
 	
