@@ -9,8 +9,10 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.net.URI;
-import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,30 +20,37 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.hamcrest.core.Is;
 import org.junit.Test;
-import org.springframework.core.io.ClassPathResource;
 
 import com.pactera.domain.User;
+import com.pactera.utils.JDBCOracleUtils;
 
-public class ApiTest extends B {
+public class ApiTest  {
 
 	public ApiTest() {
+
 	}
 
+
+
 	@Test
-	public void test2() throws IOException {
-		String path="com/pactera/beans/test.txt";
-		ClassPathResource cp = new ClassPathResource(path);
-		URI uri = cp.getURI();
-		System.out.println(uri);
-		
+	public void test2() throws IOException, SQLException {
+
+		Connection connection = JDBCOracleUtils.getConnection();
+		PreparedStatement prepareStatement = connection.prepareStatement("select * from emp");
+		ResultSet resultSet = prepareStatement.executeQuery();
+		while (resultSet.next()) {
+			String name = resultSet.getString("ename");
+			System.out.println(name);
+		}
+		JDBCOracleUtils.close();
 	}
+
 
 	@Test
 	public void teststring() throws IOException {
 
-		String filename = "E:\\wifiÃÜÂë.txt";
+		String filename = "E:\\wifiï¿½ï¿½ï¿½ï¿½.txt";
 		String file1 = "D:\\a.txt";
 		File file = new File(filename);
 		InputStream is = null;
@@ -84,7 +93,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * MapÊı×éµÄ±éÀú·½Ê½2
+	 * Mapï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Ê½2
 	 * 
 	 * @param map
 	 */
@@ -100,7 +109,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ±éÀúmap¼¯ºÏ
+	 * ï¿½ï¿½ï¿½ï¿½mapï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param map
 	 */
@@ -116,7 +125,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ´òÓ¡99³Ë·¨±í
+	 * æ‰“å°99ä¹˜æ³•å£è¯€è¡¨
 	 * 
 	 * @param n
 	 */
@@ -130,7 +139,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ±È½ÏÁ½¸öÊıµÄ´óĞ¡£¬·µ»Ø½Ï´óµÄÖµ
+	 * è·å–æœ€å¤§å€¼Öµ
 	 * 
 	 * @param x
 	 * @param y
@@ -141,7 +150,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * »ñÈ¡Èı¸öÊıµÄ×î´óÖµ
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	 * 
 	 * @param x
 	 * @param y
@@ -154,7 +163,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ±àĞ´Ò»¸öJava³ÌĞòÔÚÆÁÄ»ÉÏÊä³ö1£¡+2£¡+3£¡+¡­¡­+10£¡µÄºÍ¡£
+	 * ï¿½ï¿½Ğ´Ò»ï¿½ï¿½Javaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½+2ï¿½ï¿½+3ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½+10ï¿½ï¿½ï¿½ÄºÍ¡ï¿½
 	 * 
 	 * @param n
 	 * @return sum
@@ -168,7 +177,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ÇónµÄ½×³Ë Êä³ö:n! ==n*(n-1)....1
+	 * ï¿½ï¿½nï¿½Ä½×³ï¿½ ï¿½ï¿½ï¿½:n! ==n*(n-1)....1
 	 * 
 	 * @param n
 	 * @return
@@ -183,17 +192,18 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÎªÈòÄê 1¡¢ÆÕÍ¨ÄêÄÜ±»4Õû³ı£»ÇÒ²»ÄÜ±»100Õû³ıµÄÎªÈòÄê¡££¨Èç2004Äê¾ÍÊÇÈòÄê£¬1901Äê²»ÊÇÈòÄê£©
-	 * 2¡¢ÊÀ¼ÍÄêÄÜ±»400Õû³ıµÄÊÇÈòÄê¡£(Èç2000ÄêÊÇÈòÄê£¬1900Äê²»ÊÇÈòÄê)
+	 * ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½
+	 * 1ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½Ü±ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ü±ï¿½100ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ê¡£ï¿½ï¿½ï¿½ï¿½2004ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£¬1901ï¿½ê²»ï¿½ï¿½ï¿½ï¿½ï¿½ê£©
+	 * 2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü±ï¿½400ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¡£(ï¿½ï¿½2000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£¬1900ï¿½ê²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	 * 
 	 * @param year
-	 *            ÊäÈëµÄÄê·İ
+	 *            ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static void leap(int year) {
 		if (((year % 100 != 0) && (year % 4 == 0)) || ((year % 100 == 0) && (year % 400 == 0))) {
-			System.out.println(year + ":ÊÇÈòÄê");
+			System.out.println(year + ":ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		} else {
-			System.out.println(year + ":²»ÊÇÈòÄê");
+			System.out.println(year + ":ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 
@@ -216,7 +226,7 @@ public class ApiTest extends B {
 	}
 
 	/*
-	 * È¥³ı×Ö·û´®Á½±ßµÄ¿Õ¸ñµÄ·½·¨ "   dsfghj     "
+	 * È¥ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¿Õ¸ï¿½Ä·ï¿½ï¿½ï¿½ "   dsfghj     "
 	 */
 	public String myTrim(String str) {
 		int len = str.length();
@@ -244,7 +254,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * ¹¦ÄÜ£º½«×Ö·û´®·­×ª
+	 * ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½×ª
 	 * 
 	 * @param str
 	 * @return
@@ -257,7 +267,7 @@ public class ApiTest extends B {
 	}
 
 	/**
-	 * Êı×éÔªËØ½»»»
+	 * ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø½ï¿½ï¿½ï¿½
 	 * 
 	 * @param arr
 	 */
@@ -284,7 +294,7 @@ public class ApiTest extends B {
 
 		try {
 			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("D:\\user.txt"));
-			os.writeObject(user); // ½«User¶ÔÏóĞ´½øÎÄ¼ş
+			os.writeObject(user); // ï¿½ï¿½Userï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½Ä¼ï¿½
 			os.flush();
 			os.close();
 		} catch (FileNotFoundException e) {
@@ -294,7 +304,7 @@ public class ApiTest extends B {
 		}
 		try {
 			ObjectInputStream is = new ObjectInputStream(new FileInputStream("D:\\user.txt"));
-			user = (User) is.readObject(); // ´ÓÁ÷ÖĞ¶ÁÈ¡UserµÄÊı¾İ
+			user = (User) is.readObject(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½È¡Userï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			is.close();
 
 			System.out.println("\nread after Serializable: ");
