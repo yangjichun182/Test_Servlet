@@ -28,7 +28,7 @@
 	          它会自动注册DefaultAnnotationHandlerMapping 
 		与AnnotationMethodHandlerAdapter 两个bean, 
 		是spring MVC为@Controllers分发请求所必须的 -->
-	<mvc:annotation-driven />
+    <mvc:annotation-driven />
 
 	<!-- 配置视图jsp解析器 内部资源视图解析器 前缀+逻辑名+后缀 /WEB-INF/pages/ index .jsp -->
 	<bean id="internalResourceViewResolver"

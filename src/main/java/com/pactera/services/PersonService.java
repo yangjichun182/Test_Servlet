@@ -36,7 +36,7 @@ public class PersonService {
 	
 	//鍒楄〃
 	public List<Person> findAll(){
-		return new ArrayList(map.values());			//灏唌ap瀵硅薄杞崲涓簂ist闆嗗悎
+		return new ArrayList<Person>(map.values());			//灏唌ap瀵硅薄杞崲涓簂ist闆嗗悎
 	}
 	
 	//鑾峰緱涓�釜璁板綍

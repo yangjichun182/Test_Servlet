@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CookieDemo1 extends HttpServlet {
+public class CookieDemo extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8954369601532910812L;
 
 	/**
 	 * The doGet method of the servlet. <br>
@@ -25,6 +30,7 @@ public class CookieDemo1 extends HttpServlet {
 	 * @throws IOException
 	 *             if an error occurred
 	 */
+	@SuppressWarnings("deprecation")
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -40,11 +46,11 @@ public class CookieDemo1 extends HttpServlet {
 			}
 		}
 		if (findC == null) {
-			response.getWriter().write("ÄúÊÇµÚÒ»´Î·ÃÎÊ±¾ÍøÕ¾!");
+			response.getWriter().write("ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½Î·ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Õ¾!");
 		} else {
 			Long lastTime = Long.parseLong(findC.getValue());
 			response.getWriter().write(
-					"ÄúÉÏ´Î·ÃÎÊÊ±¼äÊÇ:" + new Date(lastTime).toLocaleString());
+					"ï¿½ï¿½ï¿½Ï´Î·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½:" + new Date(lastTime).toLocaleString());
 		}
 
 		Date date = new Date();

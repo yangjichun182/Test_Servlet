@@ -7,3 +7,4 @@ encoding//src/main/resources/config/jdbc.properties=UTF-8
 encoding//src/main/resources/config/log4j.properties=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/jsp/showTime.jsp=UTF-8
+encoding/<project>=UTF-8

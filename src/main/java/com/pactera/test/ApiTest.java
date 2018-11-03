@@ -9,43 +9,92 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Set;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.pactera.controler.StudentController;
+import com.pactera.domain.Student;
 import com.pactera.domain.User;
-import com.pactera.utils.JDBCOracleUtils;
+import com.pactera.services.StudentService;
 
-public class ApiTest  {
+public class ApiTest {
 
 	public ApiTest() {
 
 	}
 
+	@Test
+	public void test_20181022() {
+		StudentService studentService = new StudentService();
+		Student student = studentService.getStudent("004");
+		System.out.println(student.getNAME());
+	}
 
+	@Test
+	public void test_20181029() {
+		int key = 0;
+		switch (key) {
+		case 1:
+			System.err.println("Mom!");
+			break;
+		case 2:
+			System.out.println("Tue");
+			break;
+		default:
+			System.out.println("null");
+			break;
+		}
+	}
+
+	/**
+	 * @author pactera 20180910
+	 */
+	@Test
+	public void test_20180919() {
+		int a = 10;
+		int b, c, d, e;
+		b = a--;
+		c = --a;
+		d = a++;
+		e = ++a;
+		System.out.println("b=" + b); // b多少？
+		System.out.println("c=" + c); // c多少？
+		System.out.println("d=" + d);
+		System.out.println("e=" + e);
+		System.out.println(a++);
+		System.out.println(++a);
+		System.out.println(a--);
+		System.out.println(--a);
+	}
 
 	@Test
 	public void test2() throws IOException, SQLException {
+		ArrayList<Object> arrayList = new ArrayList<Object>();
+		arrayList.add("dsfh");
+		arrayList.add("dfh");
+		Object[] array = arrayList.toArray();
+		/*
+		 * for(int i=0;i<array.length;i++){ System.out.println(array[i]); }
+		 */
 
-		Connection connection = JDBCOracleUtils.getConnection();
-		PreparedStatement prepareStatement = connection.prepareStatement("select * from emp");
-		ResultSet resultSet = prepareStatement.executeQuery();
-		while (resultSet.next()) {
-			String name = resultSet.getString("ename");
-			System.out.println(name);
+		for (Object i : array) {
+			System.out.println(i);
 		}
-		JDBCOracleUtils.close();
-	}
 
+	}
 
 	@Test
 	public void teststring() throws IOException {
@@ -109,14 +158,12 @@ public class ApiTest  {
 	}
 
 	/**
-	 * ����map����
 	 * 
 	 * @param map
 	 */
 	public static void scanMap(Map<String, String> map) {
 		Set<String> keySet = map.keySet();
 		Iterator<String> it = keySet.iterator();
-		String val = "";
 		while (it.hasNext()) {
 			String key = it.next();
 			String value = map.get(key);
@@ -139,7 +186,7 @@ public class ApiTest  {
 	}
 
 	/**
-	 * 获取最大值ֵ
+	 * 获取最大值
 	 * 
 	 * @param x
 	 * @param y
@@ -150,7 +197,6 @@ public class ApiTest  {
 	}
 
 	/**
-	 * ��ȡ�����������ֵ
 	 * 
 	 * @param x
 	 * @param y
@@ -163,7 +209,6 @@ public class ApiTest  {
 	}
 
 	/**
-	 * ��дһ��Java��������Ļ�����1��+2��+3��+����+10���ĺ͡�
 	 * 
 	 * @param n
 	 * @return sum
@@ -192,12 +237,7 @@ public class ApiTest  {
 	}
 
 	/**
-	 * �ж��Ƿ�Ϊ����
-	 * 1����ͨ���ܱ�4�������Ҳ��ܱ�100������Ϊ���ꡣ����2004��������꣬1901�겻�����꣩
-	 * 2���������ܱ�400�����������ꡣ(��2000�������꣬1900�겻������)
-	 * 
 	 * @param year
-	 *            ��������
 	 */
 	public static void leap(int year) {
 		if (((year % 100 != 0) && (year % 4 == 0)) || ((year % 100 == 0) && (year % 400 == 0))) {
@@ -254,7 +294,6 @@ public class ApiTest  {
 	}
 
 	/**
-	 * ���ܣ����ַ�����ת
 	 * 
 	 * @param str
 	 * @return

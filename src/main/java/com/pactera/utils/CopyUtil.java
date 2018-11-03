@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import javax.imageio.IIOException;
-
 public class CopyUtil {
 	public static void copy1(File  fromFile,File toFile) throws IOException {
 		FileInputStream ins = new FileInputStream(fromFile);

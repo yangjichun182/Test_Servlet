@@ -44,6 +44,9 @@ public class JavaMain {
 	public static void fun3() {
 		String str[] = new String[3];
 		String str1[] = { "dsfg", "dsfgt" };
+		for(int i=0;i<str.length;i++){
+			System.out.println(str[i]);
+		}
 		for (int i = 0; i <= str1.length; i++) {
 			System.out.println(str1[i]);
 			System.out.println(str1.length);

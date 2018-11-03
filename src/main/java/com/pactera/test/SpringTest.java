@@ -20,6 +20,7 @@ public class SpringTest {
 		Student strudent=(Student) context.getBean("student");
 		int age = strudent.getAGE();
 		System.out.println(age);
+		System.out.println(path);
 	}
 
 }
