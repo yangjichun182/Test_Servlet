@@ -3,10 +3,12 @@
      PUBLIC  "-//mybatis.org//DTD Config 3.0//EN"
      "classpath:/mybatisDTD/mybatis-3-config.dtd">
 <configuration>
+
 	<typeAliases>
 		<typeAlias  type="com.pactera.domain.Student" alias="Student" />
+		<typeAlias  type="com.pactera.domain.Employees" alias="Employees" />
 	</typeAliases>
-	
+
 </configuration>
 
                                                                    

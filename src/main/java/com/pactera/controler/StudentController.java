@@ -12,26 +12,27 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pactera.domain.Employees;
 import com.pactera.domain.Student;
+import com.pactera.services.EpmService;
 import com.pactera.services.StudentService;
 
-@RequestMapping("/html/test")
+@RequestMapping("/jsp")
 @Controller
 public class StudentController {
-	
-	@Autowired(required=true)
+
+	@Autowired(required = true)
 	private StudentService studentService;
-	
-	
+
 	@RequestMapping("/student")
-	public Map<String,String> getStudentInfo(String id,HttpServletRequest request){
-		Map<String,String> map = new HashMap<String,String>();
+	public Map<String, String> getStudentInfo(String id, HttpServletRequest request) {
+		Map<String, String> map = new HashMap<String, String>();
 		Student student = studentService.getStudent(id);
-		System.out.println("student"+student);
+		System.out.println("student" + student);
 		String name = student.getNAME();
 		String id2 = student.getID();
 		String sex = student.getSEX();
-		System.out.println(id+"--"+name+"--"+sex);
+		System.out.println(id + "--" + name + "--" + sex);
 		map.put("name", name);
 		map.put("sex", sex);
 		map.put("id2", id2);
@@ -39,12 +40,10 @@ public class StudentController {
 	}
 
 	@Test
-	public void test(){
+	public void test() {
 		@SuppressWarnings("resource")
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				"classpath:spring/application.xml");
-		StudentController studentAction = (StudentController) context
-				.getBean("studentController");
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/application.xml");
+		StudentController studentAction = (StudentController) context.getBean("studentController");
 		Student student = studentAction.studentService.getStudent("002");
 		String name = student.getNAME();
 		System.out.println(name);

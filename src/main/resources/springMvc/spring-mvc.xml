@@ -34,7 +34,7 @@
 	<bean id="internalResourceViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" />
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 	
 	 <!-- 开发阶段debug打印 请求和控制器路径 -->
