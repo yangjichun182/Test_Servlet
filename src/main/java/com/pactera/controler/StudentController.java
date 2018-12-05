@@ -14,10 +14,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.pactera.domain.Employees;
 import com.pactera.domain.Student;
+import com.pactera.services.EpmService;
 import com.pactera.services.StudentService;
 
-@RequestMapping("/html/test")
+@RequestMapping("/jsp")
 @Controller
 public class StudentController {
 
