@@ -10,17 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class DebugInterceptor implements HandlerInterceptor {
 
-	private NamedThreadLocal<Long> startTimeThreadLocal = new NamedThreadLocal<Long>(
-			"StopWatch-StartTime");
+	private NamedThreadLocal<Long> startTimeThreadLocal = new NamedThreadLocal<Long>("StopWatch-StartTime");
 
-	public void afterCompletion(HttpServletRequest arg0,
-			HttpServletResponse arg1, Object arg2, Exception arg3)
+	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
 			throws Exception {
-
 	}
 
-	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-			Object arg2, ModelAndView arg3) throws Exception {
+	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
+			throws Exception {
 
 		long endTime = System.currentTimeMillis();// 1、开始时间
 		long beginTime = startTimeThreadLocal.get();
@@ -31,15 +28,12 @@ public class DebugInterceptor implements HandlerInterceptor {
 		}
 		if (arg2 instanceof HandlerMethod) {
 			HandlerMethod hm = (HandlerMethod) arg2;
-			System.out.println("debug:controller（控制器路径）:"
-					+ hm.getBean().getClass());
-			System.out.println("debug:action(动作方法名):"
-					+ hm.getMethod().getName());
+			System.out.println("debug:controller（控制器路径）:" + hm.getBean().getClass());
+			System.out.println("debug:action(动作方法名):" + hm.getMethod().getName());
 		}
 	}
 
-	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-			Object arg2) throws Exception {
+	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
 
 		long beginTime = System.currentTimeMillis();// 1、开始时间
 		startTimeThreadLocal.set(beginTime);// 线程绑定变量（该数据只有当前请求的线程可见）

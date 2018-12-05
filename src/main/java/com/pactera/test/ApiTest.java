@@ -15,22 +15,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.Set;
 
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.pactera.controler.StudentController;
-import com.pactera.domain.Student;
 import com.pactera.domain.User;
-import com.pactera.services.StudentService;
 
 public class ApiTest {
+	String a;
 
 	public ApiTest() {
 
@@ -38,9 +30,7 @@ public class ApiTest {
 
 	@Test
 	public void test_20181022() {
-		StudentService studentService = new StudentService();
-		Student student = studentService.getStudent("004");
-		System.out.println(student.getNAME());
+		System.out.println(a == null ?1:0);
 	}
 
 	@Test

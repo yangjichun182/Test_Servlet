@@ -16,8 +16,8 @@
 		<param-name>log4jRefreshInterval</param-name>
 		<param-value>10000</param-value>
 	</context-param>
-	
-  
+
+
 
 	<!-- 配置spring的上下文参数 -->
 	<context-param>
@@ -49,7 +49,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
- <!-- spring 载入log4j配置监听 -->
+	<!-- spring 载入log4j配置监听 -->
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
@@ -59,16 +59,16 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
-	
+
+
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
-	
-	
+
+
 	<!-- 防止Spring内存溢出监听器 -->
-	<listener> 
-	    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 
 
@@ -100,22 +100,22 @@
 		<servlet-name>ServletDemo</servlet-name>
 		<servlet-class>com.pactera.servlet.ServletDemo</servlet-class>
 	</servlet>
-  <servlet>
-    <servlet-name>TestAjaxServlet</servlet-name>
-    <servlet-class>com.pactera.servlet.TestAjaxServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>com.pactera.servlet.RegisterServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>XmlFileServlet</servlet-name>
-   <servlet-class>com.pactera.servlet.XmlFileServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>JsonServlet</servlet-name>
-    <servlet-class>com.pactera.servlet.JsonServlet</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>TestAjaxServlet</servlet-name>
+		<servlet-class>com.pactera.servlet.TestAjaxServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>com.pactera.servlet.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>XmlFileServlet</servlet-name>
+		<servlet-class>com.pactera.servlet.XmlFileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JsonServlet</servlet-name>
+		<servlet-class>com.pactera.servlet.JsonServlet</servlet-class>
+	</servlet>
 
 
 
@@ -139,22 +139,22 @@
 		<servlet-name>ServletDemo</servlet-name>
 		<url-pattern>/servlet/ServletDemo</url-pattern>
 	</servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>TestAjaxServlet</servlet-name>
-    <url-pattern>/TestAjaxServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/RegisterServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>XmlFileServlet</servlet-name>
-    <url-pattern>/XmlFileServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>JsonServlet</servlet-name>
-    <url-pattern>/JsonServlet</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TestAjaxServlet</servlet-name>
+		<url-pattern>/TestAjaxServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/RegisterServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>XmlFileServlet</servlet-name>
+		<url-pattern>/XmlFileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JsonServlet</servlet-name>
+		<url-pattern>/JsonServlet</url-pattern>
+	</servlet-mapping>
 	
 	
     <!-- 网站的默认首页 -->
