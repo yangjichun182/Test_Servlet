@@ -43,14 +43,6 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
-	<!-- 配置数据源1 2018-11-06 -->
-	<bean id="dataSource1" class="org.apache.commons.dbcp2.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driverClassName}" />
-		<property name="url" value="${jdbc.url1}" />
-		<property name="username" value="${jdbc.username1}" />
-		<property name="password" value="${jdbc.password1}" />
-	</bean>
 
 	<!-- spring和MyBatis完美整合 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
