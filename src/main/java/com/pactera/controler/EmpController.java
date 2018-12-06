@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pactera.domain.Employees;
 import com.pactera.services.EpmService;
 
-@RequestMapping("/jsp")
+@RequestMapping("/jsp/test")
 @Controller
 public class EmpController {
 	@Autowired(required = true)

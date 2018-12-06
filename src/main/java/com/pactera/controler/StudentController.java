@@ -19,7 +19,7 @@ import com.pactera.domain.Student;
 import com.pactera.services.EpmService;
 import com.pactera.services.StudentService;
 
-@RequestMapping("/jsp")
+@RequestMapping("/jsp/test")
 @Controller
 public class StudentController {
 
