@@ -22,14 +22,13 @@ public class EmpController {
 	public Map<String, String> getEmp(String id, HttpServletRequest request) {
 		Map<String, String> map = new HashMap<String, String>();
 		Employees emp = empService.getEmp(id);
-		System.out.println("student" + emp);
+		System.out.println("emp" + emp);
 		String name = emp.getFIRST_NAME();
-		// String id2 = emp.getID();
-		// String sex = emp.getSEX();
+		String email = emp.getEMAIL();
 		System.out.println(id + "--" + name);
 		map.put("name", name);
-		// map.put("sex", sex);
-		// map.put("id2", id2);
+		map.put("email", email);
+		request.setAttribute("emp", emp);
 		return map;
 	}
 }
