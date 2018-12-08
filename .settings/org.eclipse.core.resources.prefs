@@ -1,8 +1,8 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/pactera/controler/HomeController.java=UTF-8
-encoding//src/main/java/com/pactera/controler/StudentController.java=UTF-8
-encoding//src/main/java/com/pactera/domain/Person.java=UTF-8
-encoding//src/main/java/com/pactera/services/PersonService.java=UTF-8
+encoding//src/main/java/com/jichun/controler/HomeController.java=UTF-8
+encoding//src/main/java/com/jichun/controler/StudentController.java=UTF-8
+encoding//src/main/java/com/jichun/domain/Person.java=UTF-8
+encoding//src/main/java/com/jichun/services/PersonService.java=UTF-8
 encoding//src/main/resources/config/jdbc.properties=UTF-8
 encoding//src/main/resources/config/log4j.properties=UTF-8
 encoding//src/main/resources/persistence/mybatis.xml=UTF-8
