@@ -90,31 +90,27 @@
 	</servlet>
 	<servlet>
 		<servlet-name>Demo1</servlet-name>
-		<servlet-class>com.pactera.servlet.Demo1</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>CookieDemo1</servlet-name>
-		<servlet-class>com.pactera.servlet.CookieDemo1</servlet-class>
+		<servlet-class>com.jichun.servlet.Demo1</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ServletDemo</servlet-name>
-		<servlet-class>com.pactera.servlet.ServletDemo</servlet-class>
+		<servlet-class>com.jichun.servlet.ServletDemo</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>TestAjaxServlet</servlet-name>
-		<servlet-class>com.pactera.servlet.TestAjaxServlet</servlet-class>
+		<servlet-class>com.jichun.servlet.TestAjaxServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>RegisterServlet</servlet-name>
-		<servlet-class>com.pactera.servlet.RegisterServlet</servlet-class>
+		<servlet-class>com.jichun.servlet.RegisterServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>XmlFileServlet</servlet-name>
-		<servlet-class>com.pactera.servlet.XmlFileServlet</servlet-class>
+		<servlet-class>com.jichun.servlet.XmlFileServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>JsonServlet</servlet-name>
-		<servlet-class>com.pactera.servlet.JsonServlet</servlet-class>
+		<servlet-class>com.jichun.servlet.JsonServlet</servlet-class>
 	</servlet>
 
 
@@ -130,10 +126,6 @@
 	<servlet-mapping>
 		<servlet-name>Demo1</servlet-name>
 		<url-pattern>/servlet/Demo1</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CookieDemo1</servlet-name>
-		<url-pattern>/servlet/CookieDemo1</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ServletDemo</servlet-name>
