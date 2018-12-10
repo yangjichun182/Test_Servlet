@@ -14,9 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jichun.domain.Employees;
 import com.jichun.domain.Student;
-import com.jichun.services.EpmService;
 import com.jichun.services.StudentService;
 
 @RequestMapping("/jsp/test")
