@@ -20,7 +20,7 @@ import com.jichun.services.StudentService;
 @RequestMapping("/jsp/test")
 @Controller
 public class StudentController {
-
+	
 	@Autowired(required = true)
 	private StudentService studentService;
 

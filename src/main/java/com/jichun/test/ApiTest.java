@@ -22,15 +22,37 @@ import org.junit.Test;
 import com.jichun.domain.User;
 
 public class ApiTest {
-	String a;
 
 	public ApiTest() {
 
 	}
 
 	@Test
+	public void test_20181218() {
+		System.out.println(System.currentTimeMillis());
+	}
+
+	/**
+	 * Func:测试foreach Date：20181213 20:40
+	 */
+	@Test
+	public void test_for_20181213() {
+		String[] str = new String[] { "张三丰", "张无忌", "张铁林" };
+		for (String i : str) {
+			System.out.println(str);// 这样输出的是str这个对象的地址
+			System.out.println(i);// 这样输出的是数组中的每一个值
+		}
+	}
+
+	/**
+	 * 三元运算符测试：a == null ?1:0 这条语句转化为正常的if语句就是 如果a的值是 null 那么就等于 1 不为空的话就等于0
+	 */
+	@Test
 	public void test_20181022() {
-		System.out.println(a == null ?1:0);
+		String a = null;// 局部变量jvm不会赋予默认值，必须初始化
+		Object b = new String[] { "dfh" };
+		System.out.println(a == null ? 1 : 0);// 输出1
+		System.out.println(b == null ? 1 : 0);// 输出0
 	}
 
 	@Test
@@ -124,6 +146,11 @@ public class ApiTest {
 		scanList(list);
 	}
 
+	/**
+	 * List遍历
+	 * 
+	 * @param list
+	 */
 	public static void scanList(List<String> list) {
 		for (int i = 0; i < list.size(); i++) {
 			String str = list.get(i);
@@ -132,7 +159,7 @@ public class ApiTest {
 	}
 
 	/**
-	 * Map����ı�����ʽ2
+	 * Map集合遍历
 	 * 
 	 * @param map
 	 */
@@ -148,6 +175,7 @@ public class ApiTest {
 	}
 
 	/**
+	 * Map集合的遍历
 	 * 
 	 * @param map
 	 */
@@ -227,13 +255,15 @@ public class ApiTest {
 	}
 
 	/**
+	 * 判断闰年
+	 * 
 	 * @param year
 	 */
 	public static void leap(int year) {
 		if (((year % 100 != 0) && (year % 4 == 0)) || ((year % 100 == 0) && (year % 400 == 0))) {
-			System.out.println(year + ":������");
+			System.out.println(year + ":是闰年");
 		} else {
-			System.out.println(year + ":��������");
+			System.out.println(year + ":不是闰年");
 		}
 	}
 
@@ -323,7 +353,7 @@ public class ApiTest {
 
 		try {
 			ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("D:\\user.txt"));
-			os.writeObject(user); // ��User����д���ļ�
+			os.writeObject(user); //
 			os.flush();
 			os.close();
 		} catch (FileNotFoundException e) {
@@ -333,7 +363,7 @@ public class ApiTest {
 		}
 		try {
 			ObjectInputStream is = new ObjectInputStream(new FileInputStream("D:\\user.txt"));
-			user = (User) is.readObject(); // �����ж�ȡUser������
+			user = (User) is.readObject();
 			is.close();
 
 			System.out.println("\nread after Serializable: ");
