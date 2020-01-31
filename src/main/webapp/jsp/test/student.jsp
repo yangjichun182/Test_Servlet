@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>student查询页面</title>
 </head>
 <body>
-我是学生
+
+
 </body>
 </html>

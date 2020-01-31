@@ -48,7 +48,7 @@ public class JDBCTest {
 	 */
 	@Test
 	public void test_insert() throws ClassNotFoundException, SQLException {
-		String sql = "insert into newemp(empno,ename) values(1111,'曹操')";
+		String sql = "insert into new_emp(empno,ename) values(1111,'曹操')";
 		Connection conn = JDBCUtils.getConn();
 		PreparedStatement prepareStatement = conn.prepareStatement(sql);
 		prepareStatement.execute();
@@ -62,7 +62,7 @@ public class JDBCTest {
 	@SuppressWarnings("deprecation")
 	@Test
 	public void test_insert2() throws ClassNotFoundException, SQLException {
-		String sql = "insert into newemp(EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO ) values(?,?,?,?,?,?,?,?)";
+		String sql = "insert into new_emp(EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO ) values(?,?,?,?,?,?,?,?)";
 		Connection conn = JDBCUtils.getConn();
 		PreparedStatement prepareStatement = conn.prepareStatement(sql);
 		prepareStatement.setInt(1, 1112);

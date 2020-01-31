@@ -2,8 +2,8 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:cache="http://www.springframework.org/schema/cache"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	     http://www.springframework.org/schema/beans/spring-beans.xsd    
 	     http://www.springframework.org/schema/context  
          http://www.springframework.org/schema/context/spring-context.xsd  
@@ -11,7 +11,7 @@
          http://www.springframework.org/schema/tx/spring-tx.xsd
          http://www.springframework.org/schema/aop
          http://www.springframework.org/schema/aop/spring-aop.xsd
-         http://www.springframework.org/schema/cache  
+         http://www.springframework.org/schema/cache
          http://www.springframework.org/schema/cache/spring-cache.xsd">
 	<!-- 这里需要注意一下,报这个错误:Referenced file contains errors (http://www.springframework.org/schema/mvc/spring-mvc.xsd). 
 		For more information, right click on the message in the Problems View and 
@@ -19,10 +19,21 @@
 		line 1 XML Problem 这是由于我们前面在使用springMVC的时候和使用spring 的配置文件配置成一样的了，所以报错 -->
 	<!-- 启动 spring 的注解功能 -->
 	<context:annotation-config />
+	<!--常规方式 -->
+	<!--<bean id="student" class="com.jichun.domain.Student"> -->
+	<!--<property name="AGE" value="100"/> -->
+	<!--&lt;!&ndash;<property name="AGE"> -->
+	<!--<value>100</value> -->
+	<!--</property>&ndash;&gt; -->
+	<!--</bean> -->
+	<!--简明的方式 -->
+	<bean id="student" class="com.jichun.domain.Student" p:AGE="100">
+	<property name="NAME" value="jichun"></property>
+	</bean>
 
 	<bean id="studentController" class="com.jichun.controler.StudentController"></bean>
 	<!-- 自动扫描com.jichun包 -->
-	<context:component-scan base-package="com.jichun*">
+	<context:component-scan base-package="com.jichun.*">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -33,7 +44,7 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:config/jdbc.properties" />
 	</bean>
-	
+
 
 	<!-- 数据库连接池配置 dbcp2 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
