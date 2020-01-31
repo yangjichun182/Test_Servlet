@@ -1,4 +1,4 @@
-package com.jichun.test;
+package com.jichun.test.basic;
 
 import java.io.File;
 import java.io.FileInputStream;

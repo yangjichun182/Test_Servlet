@@ -1,4 +1,4 @@
-package com.jichun.test;
+package com.jichun.test.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,4 +1,4 @@
-package com.jichun.test;
+package com.jichun.test.basic;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,11 +20,38 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.jichun.domain.User;
+import com.jichun.utils.StringUtil;
 
 public class ApiTest {
 
 	public ApiTest() {
 
+	}
+
+	//统计单词的个数
+	@Test
+	public void test_2020_0131_1629() {
+		String str = "i am a good boy";
+		System.out.println(StringUtil.wordCount(str));
+	}
+
+	// 去除字符串中的你重复值
+	@Test
+	public void test_2020_0131_1617() {
+		String str = "aaabbbcdef";
+		String removeDuplicate2 = StringUtil.removeDuplicate2(str);
+		System.out.println(removeDuplicate2);
+	}
+
+	@Test
+	public void test_2020_0131_1519() {
+		String s = "abcd";
+		char[] cs = s.toCharArray();
+		StringBuffer sb = new StringBuffer();
+
+		for (int j = 1; j < cs.length; j++) {
+			StringUtil.combineRecursive(cs, 0, j, sb);
+		}
 	}
 
 	@Test

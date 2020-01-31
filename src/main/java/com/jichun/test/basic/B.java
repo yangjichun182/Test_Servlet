@@ -1,4 +1,4 @@
-package com.jichun.test;
+package com.jichun.test.basic;
 
 public class B {
     int sal;

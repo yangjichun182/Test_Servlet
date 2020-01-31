@@ -1,4 +1,4 @@
-package com.jichun.test;
+package com.jichun.test.spring;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
