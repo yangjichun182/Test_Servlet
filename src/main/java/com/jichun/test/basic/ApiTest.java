@@ -29,7 +29,23 @@ public class ApiTest {
 	public ApiTest() {
 
 	}
-	//测试获取日期的月份
+	
+	//测试获取当前时间
+	@Test
+	public void test_2020_0201_2230() {
+		System.out.println(DateUtils.getCurrentDate2("yyyy-MM-dd HH:mm:ss"));
+	}
+
+	//测试格式化日期格式
+	@Test
+	public void test_2020_0201_2219() {
+		Date date = new Date();
+		String pattern="yyyy/MM/dd HH:mm:ss SSS";
+		String format = DateUtils.format(date, pattern);
+		System.out.println(format);
+	}
+
+	// 测试获取日期的月份
 	@Test
 	public void test_2020_0131_2340() {
 		@SuppressWarnings("deprecation")
@@ -38,20 +54,22 @@ public class ApiTest {
 		String month = DateUtils.getMonth(date);
 		System.out.println(month);
 	}
-	//测试获取每年的第一天
+
+	// 测试获取每年的第一天
 	@Test
 	public void test_2020_0131_2332() {
 		String firstDayOfYear = DateUtils.getFirstDayOfYear(-2020);
 		System.out.println(firstDayOfYear);
 	}
-	//测试获取每个月的第一天日期
+
+	// 测试获取每个月的第一天日期
 	@Test
 	public void test_2020_0131_2316() {
 		String fistDayOfMonth = DateUtils.getFirstDayOfMonth(2021, 4);
 		System.out.println(fistDayOfMonth);
 	}
-	
-	//统计单词的个数
+
+	// 统计单词的个数
 	@Test
 	public void test_2020_0131_1629() {
 		String str = "i am a good boy";

@@ -3,6 +3,8 @@ package com.jichun.utils;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,6 +18,75 @@ public class DateUtils {
 	private static Log logger = LogFactory.getLog(DateUtils.class);
 
 	/**
+	 * <p>
+	 * <b><font size="3" color="red">功能：</font></b>获取当前日期和时间
+	 * </nl>
+	 * 这个日期格式自己定义
+	 * <h1>日期格式列表</h1>
+	 * <ol>
+	 * <li>"yyyy-MM-dd HH:mm:ss z" z表示时区 结果为：2020-02-01 22:32:55 CST 时区缩写</li>
+	 * </ol>
+	 * </p>
+	 * 
+	 * @param dateParteen
+	 *            字符串类型的日期格式，参见上面的日期格式列表
+	 * @return
+	 */
+	public static String getCurrentDate(String dateParteen) {
+		SimpleDateFormat formatter = new SimpleDateFormat(dateParteen);
+		Date date = new Date(System.currentTimeMillis());
+		String formatDate = formatter.format(date);
+		return formatDate;
+	}
+
+	/**
+	 * <p>
+	 * <b><font size="3" color="red">功能：</font></b>获取当前日期和时间
+	 * </nl>
+	 * 这个日期格式自己定义
+	 * <h1>日期格式列表</h1>
+	 * <ol>
+	 * <li>"yyyy-MM-dd HH:mm:ss z" z表示时区 结果为：2020-02-01 22:32:55 CST 时区缩写</li>
+	 * </ol>
+	 * </p>
+	 * 
+	 * @param dateParteen
+	 *            字符串类型的日期格式
+	 * @return
+	 */
+	public static String getCurrentDate1(String dateParteen) {
+		Calendar cal = Calendar.getInstance();
+		Date date = cal.getTime();
+		SimpleDateFormat formatter = new SimpleDateFormat(dateParteen);
+		String formatDate = formatter.format(date);
+		return formatDate;
+	}
+
+	/**
+	 * <p>
+	 * <b><font size="3" color="red">功能：</font></b>获取当前日期和时间
+	 * </nl>
+	 * 这个日期格式自己定义
+	 * <h1>日期格式列表</h1>
+	 * <ol>
+	 * <li>"yyyy-MM-dd HH:mm:ss" 2020-02-01 23:12:46</li>
+	 * </ol>
+	 * </p>
+	 * 
+	 * @param dateParteen
+	 *            字符串类型的日期格式 ,这个和上面的有点不同，不能够带 z 时区参数
+	 * @return
+	 */
+	public static String getCurrentDate2(String dateParteen) {
+		// LocalDateTime 这个类是 1.8以后的版本才有的
+		LocalDateTime dateTime = LocalDateTime.now(); // 获取当前的日期和时间
+		// DateTimeFormatter 这个类是 1.8以后的版本才有的
+		DateTimeFormatter dfm = DateTimeFormatter.ofPattern(dateParteen);
+		String formatDate = dateTime.format(dfm);
+		return formatDate;
+	}
+
+	/**
 	 * <pre>
 	 * 功能：获取一个月的第一天
 	 * 备注：这个函数有点问题，要是传入的是负数的，就会存在问题 2020/1/31 23:24
@@ -24,6 +95,7 @@ public class DateUtils {
 	 * @param year
 	 *            传入年份
 	 * @param month
+	 *            穿入月份
 	 * @return
 	 */
 	public static String getFirstDayOfMonth(int year, int month) {
@@ -42,9 +114,12 @@ public class DateUtils {
 	}
 
 	/**
+	 * 获取一个月的最后一天
 	 * 
 	 * @param year
+	 *            年份
 	 * @param month
+	 *            月份
 	 * @return
 	 */
 	public static String getLastDayOfMonth(int year, int month) {
@@ -87,6 +162,13 @@ public class DateUtils {
 		return firstDayOfYear;
 	}
 
+	/**
+	 * 获取一年的最后一天
+	 * 
+	 * @param year
+	 *            年份
+	 * @return
+	 */
 	public static String getLastDayOfYear(int year) {
 		Calendar cal = Calendar.getInstance();
 		// 设置年份
@@ -126,7 +208,12 @@ public class DateUtils {
 		return sdf.format(cal.getTime());
 	}
 
-	
+	/**
+	 * 
+	 * @param firstDate
+	 * @param lastDate
+	 * @return
+	 */
 	public static String compareDate(String firstDate, String lastDate) {
 		String retDate = null;
 		if (StringUtils.isEmpty(firstDate) && !StringUtils.isEmpty(lastDate)) {
@@ -187,7 +274,19 @@ public class DateUtils {
 
 	/**
 	 * 使用用户格式格式化日期
-	 *
+	 * <h1>日期格式汇总</h1>
+	 * <p>
+	 * <li>yyyy     年</li>
+	 * <li>MM       月   须大写、否则就是分钟 </li>
+	 * <li>dd       日</li>
+	 * <li>HH       时  24小时制，如果是小写、为12小时制</li>
+	 * <li>mm       分  </li>
+	 * <li> ss      秒</li>
+	 * <li>SSS     毫秒   一定要大写、否则就是秒</li>
+	 * <li>yyyy-MM-dd HH:mm:ss 例如：2020-02-01 22:21:28</li>
+	 * <li>yyyy/MM/dd HH:mm:ss SSS 最后结果：2020/02/01 22:25:30 101 101就是生成的毫秒</li>
+	 * </p>
+	 * 
 	 * @param date日期
 	 * @param pattern日期格式
 	 * @return
