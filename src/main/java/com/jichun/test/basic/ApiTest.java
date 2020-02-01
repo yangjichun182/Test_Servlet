@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,7 @@ import java.util.Set;
 import org.junit.Test;
 
 import com.jichun.domain.User;
+import com.jichun.utils.DateUtils;
 import com.jichun.utils.StringUtil;
 
 public class ApiTest {
@@ -27,7 +29,28 @@ public class ApiTest {
 	public ApiTest() {
 
 	}
-
+	//测试获取日期的月份
+	@Test
+	public void test_2020_0131_2340() {
+		@SuppressWarnings("deprecation")
+		Date date = new Date();
+		System.out.println(date.toString());
+		String month = DateUtils.getMonth(date);
+		System.out.println(month);
+	}
+	//测试获取每年的第一天
+	@Test
+	public void test_2020_0131_2332() {
+		String firstDayOfYear = DateUtils.getFirstDayOfYear(-2020);
+		System.out.println(firstDayOfYear);
+	}
+	//测试获取每个月的第一天日期
+	@Test
+	public void test_2020_0131_2316() {
+		String fistDayOfMonth = DateUtils.getFirstDayOfMonth(2021, 4);
+		System.out.println(fistDayOfMonth);
+	}
+	
 	//统计单词的个数
 	@Test
 	public void test_2020_0131_1629() {

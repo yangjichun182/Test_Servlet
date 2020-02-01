@@ -62,8 +62,13 @@ public class DateUtils {
 	}
 
 	/**
+	 * <pre>
+	 * 功能：获取一年的第一天
+	 * <li>备注：该方法为负数的时候存在问题,例如  -2020</li>
+	 * </pre>
 	 * 
 	 * @param year
+	 *            年份
 	 * @return
 	 */
 	public static String getFirstDayOfYear(int year) {
@@ -71,6 +76,8 @@ public class DateUtils {
 		// 设置年份
 		cal.set(Calendar.YEAR, year);
 		// 设置月份
+		// The first month of the year in the Gregorian and Julian calendars is
+		// JANUARY which is 0
 		cal.set(Calendar.MONTH, 0);
 		// 设置日历中月份的第1天
 		cal.set(Calendar.DAY_OF_MONTH, 1);
@@ -119,6 +126,7 @@ public class DateUtils {
 		return sdf.format(cal.getTime());
 	}
 
+	
 	public static String compareDate(String firstDate, String lastDate) {
 		String retDate = null;
 		if (StringUtils.isEmpty(firstDate) && !StringUtils.isEmpty(lastDate)) {
