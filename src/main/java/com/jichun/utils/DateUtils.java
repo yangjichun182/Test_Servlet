@@ -13,7 +13,12 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
+/**
+ * 常用日期处理的工具类
+ * @author xbm
+ * @date   2021年1月19日 下午3:10:10
+ *
+ */
 public class DateUtils {
 	private static Log logger = LogFactory.getLog(DateUtils.class);
 
