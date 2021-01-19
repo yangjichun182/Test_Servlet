@@ -7,7 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
-
+/**
+ * JDBC的通用连接方法
+ * @author xbm
+ * @date   2019年3月9日 上午11:10:28
+ *
+ */
 public class JDBCUtils {
 	private static Properties prop = null;
 
@@ -26,7 +31,7 @@ public class JDBCUtils {
 	}
 
 	/**
-	 * 获取连接
+	 * 获取连接对象
 	 * 
 	 * @throws ClassNotFoundException
 	 * @throws SQLException
@@ -40,7 +45,11 @@ public class JDBCUtils {
 	}
 
 	/**
-	 * 关闭连接
+	 * 关闭资源
+	 * 
+	 * @param rs 结果集
+	 * @param stat 
+	 * @param conn 连接对象
 	 */
 	public static void close(ResultSet rs, Statement stat, Connection conn) {
 		if (rs != null) {

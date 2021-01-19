@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./../../css/demo1.css" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="ADMIN11626" class="sect2">
+		<h3 class="sect2">Specify the Type of Table to Create</h3>
+		<p>Here are the types of tables that you can create:</p>
+		<div class="inftblhruleinformal">
+			<table class="cellalignment2683" title="Table Varieties"
+				summary="Column 1 lists some of the various types of tables, column 2 describes each type of table.">
+				<thead>
+					<tr class="cellalignment2677">
+						<th class="cellalignment2684" id="r1c1-t3">Type of Table</th>
+						<th class="cellalignment2684" id="r1c2-t3">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="cellalignment2677">
+						<td class="cellalignment2685" id="r2c1-t3" headers="r1c1-t3">Ordinary
+							(heap-organized) table</td>
+						<td class="cellalignment2685" headers="r2c1-t3 r1c2-t3">This
+							is the basic, general purpose type of table which is the primary
+							subject of this chapter. Its data is stored as an unordered
+							collection (heap).</td>
+					</tr>
+					<tr class="cellalignment2677">
+						<td class="cellalignment2685" id="r3c1-t3" headers="r1c1-t3">Clustered
+							table</td>
+						<td class="cellalignment2685" headers="r3c1-t3 r1c2-t3">A
+							clustered table is a table that is part of a cluster. A cluster
+							is a group of tables that share the same data blocks because they
+							share common columns and are often used together.
+							<p>
+								Clusters and clustered tables are discussed in <a
+									href="clustrs.htm#g1009415">Chapter 22, "Managing Clusters"</a>.
+							</p>
+						</td>
+					</tr>
+					<tr class="cellalignment2677">
+						<td class="cellalignment2685" id="r4c1-t3" headers="r1c1-t3">Index-organized
+							table</td>
+						<td class="cellalignment2685" headers="r4c1-t3 r1c2-t3">Unlike
+							an ordinary (heap-organized) table, data for an index-organized
+							table is stored in a B-tree index structure in a primary key
+							sorted manner. Besides storing the primary key column values of
+							an index-organized table row, each index entry in the B-tree
+							stores the nonkey column values as well.
+							<p>
+								Index-organized tables are discussed in <a href="#i1010378">"Managing
+									Index-Organized Tables"</a>.
+							</p>
+						</td>
+					</tr>
+					<tr class="cellalignment2677">
+						<td class="cellalignment2685" id="r5c1-t3" headers="r1c1-t3">Partitioned
+							table</td>
+						<td class="cellalignment2685" headers="r5c1-t3 r1c2-t3">Partitioned
+							tables enable your data to be broken down into smaller, more
+							manageable pieces called partitions, or even subpartitions. Each
+							partition can have separate physical attributes, such as
+							compression enabled or disabled, type of compression, physical
+							storage settings, and tablespace, thus providing a structure that
+							can be better tuned for availability and performance. In
+							addition, each partition can be managed individually, which can
+							simplify and reduce the time required for backup and
+							administration.
+							<p>
+								Partitioned tables are discussed in <a class="olink VLDBG"
+									href="../../server.112/e25523/toc.htm"><span class="italic">Oracle
+										Database VLDB and Partitioning Guide</span></a>.
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+		</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+.id1 {
+	font-size: 20px;
+	color: blue;
+}
+
+.id2 {
+	padding-left: 2cm;
+	height: 40px;
+	list-style-type: circle;
+	color: red;
+}
+
+.title {
+	size: 15px;
+	color: #4f4f4f;
+	margin-left: 1cm;
+}
+
+.cellalignment2677 {
+	text-align: left;
+	vertical-align: top;
+}
+
+.cellalignment2683 {
+	border-spacing: 0px;
+	border: 1;
+	padding: 3px;
+	width: 100%;
+}
+
+.cellalignment2684 {
+	text-align: left;
+	vertical-align: bottom;
+	background-color: rgb(63, 63, 63);
+	padding-top: 8px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: left;
+	background-position: 0%, 0%;
+	font-size: 14px;
+	font-style: normal;
+	font-family: "Helvetica Neue", "Neue Helvetica";
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+thead th {
+	background: #3F3F3F;
+	font-weight: bold;
+	color: #FFF !important;
+	text-align: left;
+	vertical-align: center;
+}
+
+thead tr {
+	background: #3F3F3F !important;
+}

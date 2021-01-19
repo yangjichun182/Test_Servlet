@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./../../../css/demo1.css" />
+<title>oracle tables</title>
+</head>
+<body>
+	<h1>表分类</h1>
+	<p>The most common type of table in an Oracle database is a
+		relational table, which is structured with simple columns similar to
+		the employees table. Two other table types are supported: object
+		tables and XMLType tables. Any of the three table types can be defined
+		as permanent or temporary[临时的]. Temporary tables hold session-private
+		data that exists only for the duration of a transaction[事务] or
+		session. They are useful in applications where a results set must be
+		held temporarily in memory, perhaps because the results set is
+		constructed by running multiple operations. You can build relational
+		tables in either heap or index-organized structures. In heap
+		structures, the rows are not stored in any particular order. In
+		index-organized tables, the row order is determined by the values in
+		one or more selected columns. For some applications, index-organized
+		tables provide enhanced【增强，加强】 performance and more efficient use of
+		disk space. This section describes permanent, heap-organized
+		tables【堆表】. For information about other table types and when to use
+		them, see Oracle Database Administrator's Guide, Oracle Database
+		Concepts , and Oracle Database Performance Tuning Guide . For the
+		syntax required to create and alter tables with SQL。</p>
+
+	<p>the types of tables that you can create:</p>
+	<table class="cellalignment2683" title="Table Varieties"
+		summary="Column 1 lists some of the various types of tables, column 2 describes each type of table.">
+		<thred>
+		<tr class="cellalignment2677">
+			<th class="cellalignment2684" id="r1c1-t3">Type of Table</th>
+			<th class="cellalignment2684" id="r1c2-t3">Descriptions</th>
+		</tr>
+		</thred>
+		<tbody>
+			<tr class="cellalignment2677">
+				<td class="cellalignment2685">Ordinary (heap-organized) table</td>
+				<td class="cellalignment2685">This is the basic, general
+					purpose type of table which is the primary subject of this chapter.
+					Its data is stored as an unordered collection (heap).</td>
+			</tr>
+			<tr class="cellalignment2677">
+				<td class="cellalignment2685">Clustered table</td>
+				<td class="cellalignment2685">A clustered table is a table that
+					is part of a cluster. A cluster is a group of tables that share the
+					same data blocks because they share common columns and are often
+					used together.</td>
+			</tr>
+			<tr class="cellalignment2677">
+				<td class="cellalignment2685">Partitioned table</td>
+				<td class="cellalignment2685">Partitioned tables enable your
+					data to be broken down into smaller, more manageable pieces called
+					partitions, or even subpartitions. Each partition can have separate
+					physical attributes, such as compression enabled or disabled, type
+					of compression, physical storage settings, and tablespace, thus
+					providing a structure that can be better tuned for availability and
+					performance. In addition, each partition can be managed
+					individually, which can simplify and reduce the time required for
+					backup and administration.</td>
+			</tr>
+			<tr class="cellalignment2677">
+				<td class="cellalignment2685">Index-organized table</td>
+				<td class="cellalignment2685">Unlike an ordinary
+					(heap-organized) table, data for an index-organized table is stored
+					in a B-tree index structure in a primary key sorted manner. Besides
+					storing the primary key column values of an index-organized table
+					row, each index entry in the B-tree stores the nonkey column values
+					as well.</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
