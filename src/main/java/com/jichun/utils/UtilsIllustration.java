@@ -4,7 +4,7 @@ package com.jichun.utils;
 import com.jichun.utils.DateUtils;
 
 /**
- * @function 
+ * @function 用于说明utils包下的内容
  * @author xbm
  * @date   2021年1月19日 下午3:07:11
  *
