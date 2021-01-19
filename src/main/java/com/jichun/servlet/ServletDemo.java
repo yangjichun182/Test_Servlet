@@ -30,10 +30,11 @@ public class ServletDemo extends HttpServlet {
 	 *             if an error occurred
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
 		String servletInfo = this.getServletInfo();
 		PrintWriter writer = response.getWriter();
 		writer.println("servletInfo：" + servletInfo);
-
 	}
 
 	/**

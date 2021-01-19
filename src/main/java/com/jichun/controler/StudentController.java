@@ -5,10 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,13 +58,5 @@ public class StudentController {
 		return "welcome";
 	}
 
-	@Test
-	public void test() {
-		@SuppressWarnings("resource")
-		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/application.xml");
-		StudentController studentAction = (StudentController) context.getBean("studentController");
-		Student student = studentAction.studentService.getStudent("002");
-		String name = student.getNAME();
-		System.out.println(name);
-	}
+
 }
