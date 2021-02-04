@@ -292,8 +292,8 @@ public class DateUtils {
 	 * <li>yyyy/MM/dd HH:mm:ss SSS 最后结果：2020/02/01 22:25:30 101 101就是生成的毫秒</li>
 	 * </p>
 	 * 
-	 * @param date日期
-	 * @param pattern日期格式
+	 * @param date 日期
+	 * @param pattern 日期格式
 	 * @return
 	 */
 	public static String format(Date date, String pattern) {
@@ -397,7 +397,7 @@ public class DateUtils {
 	/**
 	 * 将日期转化为字符串类型
 	 * 
-	 * @param dateStr
+	 * @param date Str
 	 * @param pattern
 	 * @return
 	 */
